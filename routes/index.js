@@ -29,17 +29,6 @@ router.get('/results', (req, res, next) => {
         },
       ],
     };
-<<<<<<< HEAD
-=======
-    const resultAPI = `https://chingalo.site/soil-analysis/api/results`;
-
-    const results = await axios.post(resultAPI, resultPayload);
-    const deviceDetails = await axios.get(
-      `https://chingalo.site/soil-analysis/api/devices/`,
-    );
-
-    const url = `https://us-central1-soil-test-api.cloudfunctions.net/app/api/save?pH=${data.pH}&moisture=${data.moisture}&temperature=${data.temperature}&user=${deviceDetails.user.username}$location=${deviceDetails.user.region}`;
->>>>>>> dbeba2e0b6e0cf7b8479228bbbf735e28c471d71
 
     try {
       const resultAPI = `https://chingalo.site/soil-analysis/api/results`;
