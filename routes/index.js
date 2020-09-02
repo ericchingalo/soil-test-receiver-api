@@ -2,7 +2,6 @@ var express = require('express');
 const axios = require('axios');
 var router = express.Router();
 
-/* Saving the results to firebase */
 router.get('/results', (req, res, next) => {
   (async () => {
     const data = {
@@ -33,11 +32,10 @@ router.get('/results', (req, res, next) => {
 
     try {
       const resultAPI = `https://chingalo.site/soil-analysis/api/results`;
-      const results = await axios.post(resultAPI, resultPayload);
+      await axios.post(resultAPI, resultPayload);
       const deviceDetails = await axios.get(
         `https://chingalo.site/soil-analysis/api/devices/${deviceId}`,
       );
-
       const url = `https://us-central1-soil-test-api.cloudfunctions.net/app/api/save?pH=${
         data.pH
       }&moisture=${data.moisture}&temperature=${data.temperature}&user=${
